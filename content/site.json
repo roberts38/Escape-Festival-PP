@@ -1,0 +1,213 @@
+{
+  "site": {
+    "name": "ESCAPE",
+    "subtitle": "Music Festival",
+    "description": "ESCAPE is a family-friendly music festival at Coconut Park 2 Koh Norea with local and international artists, bands and DJs across two stages.",
+    "facebook_url": "https://www.facebook.com/profile.php?id=61574067095976",
+    "instagram_url": "",
+    "tiktok_url": ""
+  },
+  "hero": {
+    "eyebrow": "Year Three • Coconut Park 2 Koh Norea • Date TBA",
+    "headline": "ESCAPE",
+    "copy": "A family-friendly music festival with two stages of local and international bands, artists and DJs, returning for its third edition after two packed-out years.",
+    "image": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=2200&q=82",
+    "image_alt": "Crowd at an outdoor music festival",
+    "highlights": [
+      "Two stages",
+      "Street food",
+      "Family-friendly",
+      "Local & international acts"
+    ]
+  },
+  "notice": "Artist lineup, ticket link, sponsors and next event date are still TBC.",
+  "about": {
+    "kicker": "About The Festival",
+    "headline": "Built for big singalongs, easy afternoons and one more song.",
+    "body": "ESCAPE is a community-first music festival now heading into its third year. The first edition took place on 28 March 2025, followed by the second on 28 February 2026. The next event will take place at Coconut Park 2 Koh Norea, bringing together families, friends, local talent, international acts and DJs across two stages."
+  },
+  "lineup": {
+    "kicker": "Lineup",
+    "headline": "First names dropping soon",
+    "submit_label": "Submit artist info",
+    "feature": {
+      "tag": "Headliner TBA",
+      "name": "Main Stage",
+      "description": "Local and international headline bands, artists and DJs. Full lineup TBC.",
+      "image": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80",
+      "image_alt": "Festival crowd under stage lights"
+    },
+    "artists": [
+      {
+        "name": "Local Bands",
+        "description": "Names and set times TBC"
+      },
+      {
+        "name": "International Acts",
+        "description": "Names and set times TBC"
+      },
+      {
+        "name": "DJ Stage",
+        "description": "Selectors and closing sets TBC"
+      },
+      {
+        "name": "Second Stage",
+        "description": "Emerging artists and special guests TBC"
+      }
+    ]
+  },
+  "experience": {
+    "kicker": "Experience",
+    "headline": "More than a stage",
+    "items": [
+      {
+        "title": "Music All Day",
+        "description": "Build a clear schedule with bands, artists, DJs, main-stage moments and second-stage discoveries.",
+        "image": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=900&q=80",
+        "image_alt": "Colourful festival lights and crowd"
+      },
+      {
+        "title": "Food & Drink",
+        "description": "Add confirmed vendors, bars, dietary notes, water points and any bring-your-own rules.",
+        "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=80",
+        "image_alt": "Fresh festival food being served"
+      },
+      {
+        "title": "Family Energy",
+        "description": "Highlight relaxed spaces, kids' activities, accessibility, safe meeting points and family facilities.",
+        "image": "https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=900&q=80",
+        "image_alt": "Friends enjoying an outdoor event"
+      }
+    ]
+  },
+  "tickets": {
+    "kicker": "Tickets",
+    "headline": "Ticket launch ready",
+    "copy": "Tickets are planned at $10. Connect this section to the booking link when confirmed.",
+    "price": "$10",
+    "ticket_url": "",
+    "launch_date": "2027-03-28T12:00:00+07:00",
+    "options": [
+      {
+        "tag": "Early Bird",
+        "price": "$10",
+        "description": "General entry ticket. Booking link TBC.",
+        "button_label": "Register Interest"
+      },
+      {
+        "tag": "General",
+        "price": "$10",
+        "description": "The main ticket type for festival day entry.",
+        "button_label": "Buy Soon",
+        "featured": true
+      },
+      {
+        "tag": "Group",
+        "price": "Ask Us",
+        "description": "Use this for family, crew, sponsor or group packages.",
+        "button_label": "Contact"
+      }
+    ]
+  },
+  "past_events": {
+    "kicker": "Past Events",
+    "headline": "Two years already in the story",
+    "events": [
+      {
+        "date": "28 March 2025",
+        "title": "First Edition",
+        "description": "Add attendance, photos, performers and the founding story from the first event."
+      },
+      {
+        "date": "28 February 2026",
+        "title": "Second Edition",
+        "description": "Add the 2026 highlights, social proof, press quotes, community partners and best moments."
+      },
+      {
+        "date": "Next Date TBA",
+        "title": "Third Edition",
+        "description": "Use this space for the 2027 or next-season announcement once confirmed."
+      }
+    ]
+  },
+  "gallery": {
+    "kicker": "Gallery",
+    "headline": "Photos from the ESCAPE story",
+    "photos": [
+      {
+        "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=80",
+        "image_alt": "Festival crowd with stage lights",
+        "caption": "Add a real ESCAPE event photo here."
+      },
+      {
+        "image": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=900&q=80",
+        "image_alt": "Friends celebrating outdoors",
+        "caption": "Replace with a photo from 2025 or 2026."
+      },
+      {
+        "image": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=900&q=80",
+        "image_alt": "Outdoor festival lights",
+        "caption": "Upload new gallery images in the CMS."
+      }
+    ]
+  },
+  "info": {
+    "kicker": "Information",
+    "headline": "Plan your day",
+    "items": [
+      {
+        "title": "Location",
+        "description": "Coconut Park 2 Koh Norea. Add full address, parking notes and a map embed."
+      },
+      {
+        "title": "Travel",
+        "description": "Add taxi drop-off, tuk-tuk guidance, parking, accessibility routes and nearby landmarks."
+      },
+      {
+        "title": "Access",
+        "description": "Step-free information, carers, quiet space, medical support and entry policy."
+      },
+      {
+        "title": "What To Bring",
+        "description": "Bags, chairs, water bottles, weather prep, prohibited items and re-entry rules."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "When is the next festival?",
+        "answer": "The third-year date is still marked as TBA in this prototype. Add the confirmed date once announced."
+      },
+      {
+        "question": "Where do I buy tickets?",
+        "answer": "Tickets are planned at $10. Replace the ticket buttons with your confirmed booking link when ready."
+      },
+      {
+        "question": "Can families attend?",
+        "answer": "Yes. ESCAPE is positioned as a family-friendly festival with music, food, open-air space and two stages."
+      }
+    ]
+  },
+  "sponsors": {
+    "kicker": "Partners",
+    "headline": "Sponsor announcements TBC",
+    "items": [
+      {
+        "name": "Smart TBC",
+        "logo": ""
+      },
+      {
+        "name": "Heineken TBC",
+        "logo": ""
+      },
+      {
+        "name": "Tiger TBC",
+        "logo": ""
+      }
+    ]
+  },
+  "contact": {
+    "kicker": "Stay In The Loop",
+    "headline": "Announcements, artists, sponsors and ticket drops.",
+    "email": "hello@example.com"
+  }
+}

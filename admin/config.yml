@@ -1,0 +1,184 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+publish_mode: editorial_workflow
+
+site_url: "/"
+display_url: "/"
+logo_url: "/assets/uploads/escape-logo.png"
+
+collections:
+  - name: "site"
+    label: "Website Content"
+    files:
+      - name: "home"
+        label: "ESCAPE Homepage"
+        file: "content/site.json"
+        format: "json"
+        fields:
+          - label: "Site"
+            name: "site"
+            widget: "object"
+            fields:
+              - { label: "Festival Name", name: "name", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Facebook URL", name: "facebook_url", widget: "string", required: false }
+              - { label: "Instagram URL", name: "instagram_url", widget: "string", required: false }
+              - { label: "TikTok URL", name: "tiktok_url", widget: "string", required: false }
+
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Copy", name: "copy", widget: "text" }
+              - { label: "Hero Image", name: "image", widget: "image" }
+              - { label: "Hero Image Alt Text", name: "image_alt", widget: "string" }
+              - label: "Highlight Strip"
+                name: "highlights"
+                widget: "list"
+                field: { label: "Highlight", name: "highlight", widget: "string" }
+
+          - { label: "Notice Bar", name: "notice", widget: "text" }
+
+          - label: "About"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Kicker", name: "kicker", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+
+          - label: "Lineup"
+            name: "lineup"
+            widget: "object"
+            fields:
+              - { label: "Kicker", name: "kicker", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Submit Link Label", name: "submit_label", widget: "string" }
+              - label: "Featured Artist / Stage"
+                name: "feature"
+                widget: "object"
+                fields:
+                  - { label: "Tag", name: "tag", widget: "string" }
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Image Alt Text", name: "image_alt", widget: "string" }
+              - label: "Artists / Stages"
+                name: "artists"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+
+          - label: "Experience Cards"
+            name: "experience"
+            widget: "object"
+            fields:
+              - { label: "Kicker", name: "kicker", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Image Alt Text", name: "image_alt", widget: "string" }
+
+          - label: "Tickets"
+            name: "tickets"
+            widget: "object"
+            fields:
+              - { label: "Kicker", name: "kicker", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Copy", name: "copy", widget: "text" }
+              - { label: "Default Price", name: "price", widget: "string" }
+              - { label: "Ticket URL", name: "ticket_url", widget: "string", required: false }
+              - { label: "Countdown Date", name: "launch_date", widget: "datetime", required: false }
+              - label: "Ticket Options"
+                name: "options"
+                widget: "list"
+                fields:
+                  - { label: "Tag", name: "tag", widget: "string" }
+                  - { label: "Price", name: "price", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Button Label", name: "button_label", widget: "string" }
+                  - { label: "Featured", name: "featured", widget: "boolean", required: false }
+
+          - label: "Past Events"
+            name: "past_events"
+            widget: "object"
+            fields:
+              - { label: "Kicker", name: "kicker", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - label: "Events"
+                name: "events"
+                widget: "list"
+                fields:
+                  - { label: "Date", name: "date", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+
+          - label: "Gallery"
+            name: "gallery"
+            widget: "object"
+            fields:
+              - { label: "Kicker", name: "kicker", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - label: "Photos"
+                name: "photos"
+                widget: "list"
+                fields:
+                  - { label: "Photo", name: "image", widget: "image" }
+                  - { label: "Alt Text", name: "image_alt", widget: "string" }
+                  - { label: "Caption", name: "caption", widget: "string", required: false }
+
+          - label: "Information"
+            name: "info"
+            widget: "object"
+            fields:
+              - { label: "Kicker", name: "kicker", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - label: "Info Cards"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+              - label: "FAQs"
+                name: "faqs"
+                widget: "list"
+                fields:
+                  - { label: "Question", name: "question", widget: "string" }
+                  - { label: "Answer", name: "answer", widget: "text" }
+
+          - label: "Sponsors"
+            name: "sponsors"
+            widget: "object"
+            fields:
+              - { label: "Kicker", name: "kicker", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - label: "Sponsor List"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Sponsor Name", name: "name", widget: "string" }
+                  - { label: "Sponsor Logo", name: "logo", widget: "image", required: false }
+
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Kicker", name: "kicker", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
