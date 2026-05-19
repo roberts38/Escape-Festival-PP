@@ -90,6 +90,18 @@ function renderSite(content) {
     heroBg.style.backgroundImage = `url("${content.hero.image}")`;
     heroBg.setAttribute('aria-label', content.hero.image_alt || '');
   }
+  const heroVideo = document.querySelector('[data-hero-video]');
+  if (heroVideo) {
+    if (content.hero?.video) {
+      heroVideo.src = content.hero.video;
+      heroVideo.hidden = false;
+      heroVideo.setAttribute('aria-label', content.hero.image_alt || 'Festival video');
+      heroVideo.play().catch(() => {});
+    } else {
+      heroVideo.removeAttribute('src');
+      heroVideo.hidden = true;
+    }
+  }
 
   renderCollection(document.querySelector('[data-hero-highlights]'), content.hero?.highlights, (item) => `<span>${item}</span>`);
 

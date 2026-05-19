@@ -7,11 +7,8 @@ local_backend: true
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
-
-
 site_url: "/"
 display_url: "/"
-logo_url: "/assets/uploads/escape-logo.png"
 
 collections:
   - name: "site"
@@ -40,6 +37,7 @@ collections:
               - { label: "Eyebrow", name: "eyebrow", widget: "string" }
               - { label: "Headline", name: "headline", widget: "string" }
               - { label: "Copy", name: "copy", widget: "text" }
+              - { label: "Hero Video", name: "video", widget: "file", required: false, hint: "Optional MP4/WebM video. If set, it plays behind the hero text. Keep it short and compressed." }
               - { label: "Hero Image", name: "image", widget: "image" }
               - { label: "Hero Image Alt Text", name: "image_alt", widget: "string" }
               - label: "Highlight Strip"
