@@ -1,83 +1,27 @@
 {
-  "site": {
-    "name": "ESCAPE",
-    "subtitle": "Music Festival",
-    "description": "ESCAPE is a family-friendly music festival at Coconut Park 2 Koh Norea with local and international artists, bands and DJs across two stages.",
-    "facebook_url": "https://www.facebook.com/profile.php?id=61574067095976",
-    "instagram_url": "",
-    "tiktok_url": ""
+  "contact": {
+    "kicker": "Stay In The Loop",
+    "headline": "Announcements, artists, sponsors and ticket drops.",
+    "email": "hello@example.com"
   },
-  "hero": {
-    "eyebrow": "Year Three • Coconut Park 2 Koh Norea • Date TBA",
-    "headline": "ESCAPE",
-    "copy": "A family-friendly music festival with two stages of local and international bands, artists and DJs, returning for its third edition after two packed-out years.",
-    "video": "",
-    "image": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=2200&q=82",
-    "image_alt": "Crowd at an outdoor music festival",
-    "highlights": [
-      "Two stages",
-      "Street food",
-      "Family-friendly",
-      "Local & international acts"
-    ]
-  },
-  "notice": "Artist lineup, ticket link, sponsors and next event date are still TBC.",
-  "about": {
-    "kicker": "About The Festival",
-    "headline": "Built for big singalongs, easy afternoons and one more song.",
-    "body": "ESCAPE is a community-first music festival now heading into its third year. The first edition took place on 28 March 2025, followed by the second on 28 February 2026. The next event will take place at Coconut Park 2 Koh Norea, bringing together families, friends, local talent, international acts and DJs across two stages."
-  },
-  "lineup": {
-    "kicker": "Lineup",
-    "headline": "First names dropping soon",
-    "submit_label": "Submit artist info",
-    "feature": {
-      "tag": "Headliner TBA",
-      "name": "Main Stage",
-      "description": "Local and international headline bands, artists and DJs. Full lineup TBC.",
-      "image": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80",
-      "image_alt": "Festival crowd under stage lights"
-    },
-    "artists": [
+  "past_events": {
+    "kicker": "Past Events",
+    "headline": "Two years already in the story",
+    "events": [
       {
-        "name": "Local Bands",
-        "description": "Names and set times TBC"
+        "date": "28 March 2025",
+        "title": "First Edition",
+        "description": "Add attendance, photos, performers and the founding story from the first event."
       },
       {
-        "name": "International Acts",
-        "description": "Names and set times TBC"
+        "date": "28 February 2026",
+        "title": "Second Edition",
+        "description": "Add the 2026 highlights, social proof, press quotes, community partners and best moments."
       },
       {
-        "name": "DJ Stage",
-        "description": "Selectors and closing sets TBC"
-      },
-      {
-        "name": "Second Stage",
-        "description": "Emerging artists and special guests TBC"
-      }
-    ]
-  },
-  "experience": {
-    "kicker": "Experience",
-    "headline": "More than a stage",
-    "items": [
-      {
-        "title": "Music All Day",
-        "description": "Build a clear schedule with bands, artists, DJs, main-stage moments and second-stage discoveries.",
-        "image": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=900&q=80",
-        "image_alt": "Colourful festival lights and crowd"
-      },
-      {
-        "title": "Food & Drink",
-        "description": "Add confirmed vendors, bars, dietary notes, water points and any bring-your-own rules.",
-        "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=80",
-        "image_alt": "Fresh festival food being served"
-      },
-      {
-        "title": "Family Energy",
-        "description": "Highlight relaxed spaces, kids' activities, accessibility, safe meeting points and family facilities.",
-        "image": "https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=900&q=80",
-        "image_alt": "Friends enjoying an outdoor event"
+        "date": "Next Date TBA",
+        "title": "Third Edition",
+        "description": "Use this space for the 2027 or next-season announcement once confirmed."
       }
     ]
   },
@@ -110,47 +54,42 @@
       }
     ]
   },
-  "past_events": {
-    "kicker": "Past Events",
-    "headline": "Two years already in the story",
-    "events": [
+  "site": {
+    "name": "ESCAPE",
+    "subtitle": "Music Festival",
+    "description": "ESCAPE is a family-friendly music festival at Coconut Park 2 Koh Norea with local and international artists, bands and DJs across two stages.",
+    "facebook_url": "https://www.facebook.com/profile.php?id=61574067095976",
+    "instagram_url": "",
+    "tiktok_url": ""
+  },
+  "experience": {
+    "kicker": "Experience",
+    "headline": "More than a stage",
+    "items": [
       {
-        "date": "28 March 2025",
-        "title": "First Edition",
-        "description": "Add attendance, photos, performers and the founding story from the first event."
+        "title": "Music All Day",
+        "description": "Build a clear schedule with bands, artists, DJs, main-stage moments and second-stage discoveries.",
+        "image": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=900&q=80",
+        "image_alt": "Colourful festival lights and crowd"
       },
       {
-        "date": "28 February 2026",
-        "title": "Second Edition",
-        "description": "Add the 2026 highlights, social proof, press quotes, community partners and best moments."
+        "title": "Food & Drink",
+        "description": "Add confirmed vendors, bars, dietary notes, water points and any bring-your-own rules.",
+        "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=80",
+        "image_alt": "Fresh festival food being served"
       },
       {
-        "date": "Next Date TBA",
-        "title": "Third Edition",
-        "description": "Use this space for the 2027 or next-season announcement once confirmed."
+        "title": "Family Energy",
+        "description": "Highlight relaxed spaces, kids' activities, accessibility, safe meeting points and family facilities.",
+        "image": "https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=900&q=80",
+        "image_alt": "Friends enjoying an outdoor event"
       }
     ]
   },
-  "gallery": {
-    "kicker": "Gallery",
-    "headline": "Photos from the ESCAPE story",
-    "photos": [
-      {
-        "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=80",
-        "image_alt": "Festival crowd with stage lights",
-        "caption": "Add a real ESCAPE event photo here."
-      },
-      {
-        "image": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=900&q=80",
-        "image_alt": "Friends celebrating outdoors",
-        "caption": "Replace with a photo from 2025 or 2026."
-      },
-      {
-        "image": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=900&q=80",
-        "image_alt": "Outdoor festival lights",
-        "caption": "Upload new gallery images in the CMS."
-      }
-    ]
+  "about": {
+    "kicker": "About The Festival",
+    "headline": "Built for big singalongs, easy afternoons and one more song.",
+    "body": "ESCAPE is a community-first music festival now heading into its third year. The first edition took place on 28 March 2025, followed by the second on 28 February 2026. The next event will take place at Coconut Park 2 Koh Norea, bringing together families, friends, local talent, international acts and DJs across two stages."
   },
   "info": {
     "kicker": "Information",
@@ -188,6 +127,58 @@
       }
     ]
   },
+  "lineup": {
+    "kicker": "Lineup",
+    "headline": "First names dropping soon",
+    "submit_label": "Submit artist info",
+    "feature": {
+      "tag": "Headliner TBA",
+      "name": "Main Stage",
+      "description": "Local and international headline bands, artists and DJs. Full lineup TBC.",
+      "image": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80",
+      "image_alt": "Festival crowd under stage lights"
+    },
+    "artists": [
+      {
+        "name": "Local Bands",
+        "description": "Names and set times TBC"
+      },
+      {
+        "name": "International Acts",
+        "description": "Names and set times TBC"
+      },
+      {
+        "name": "DJ Stage",
+        "description": "Selectors and closing sets TBC"
+      },
+      {
+        "name": "Second Stage",
+        "description": "Emerging artists and special guests TBC"
+      }
+    ]
+  },
+  "gallery": {
+    "kicker": "Gallery",
+    "headline": "Photos from the ESCAPE story",
+    "photos": [
+      {
+        "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=80",
+        "image_alt": "Festival crowd with stage lights",
+        "caption": "Add a real ESCAPE event photo here."
+      },
+      {
+        "image": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=900&q=80",
+        "image_alt": "Friends celebrating outdoors",
+        "caption": "Replace with a photo from 2025 or 2026."
+      },
+      {
+        "image": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=900&q=80",
+        "image_alt": "Outdoor festival lights",
+        "caption": "Upload new gallery images in the CMS."
+      }
+    ]
+  },
+  "notice": "Artist lineup, ticket link, sponsors and next event date are still TBC.",
   "sponsors": {
     "kicker": "Partners",
     "headline": "Sponsor announcements TBC",
@@ -206,9 +197,18 @@
       }
     ]
   },
-  "contact": {
-    "kicker": "Stay In The Loop",
-    "headline": "Announcements, artists, sponsors and ticket drops.",
-    "email": "hello@example.com"
+  "hero": {
+    "eyebrow": "Year Three • Coconut Park 2 Koh Norea • Date TBA",
+    "headline": "ESCAPE",
+    "copy": "A family-friendly music festival with two stages of local and international bands, artists and DJs, returning for its third edition after two packed-out years.",
+    "video": "/assets/uploads/escape-reduced.mp4",
+    "image": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=2200&q=82",
+    "image_alt": "Crowd at an outdoor music festival",
+    "highlights": [
+      "Two stages",
+      "Street food",
+      "Family-friendly",
+      "Local & international acts"
+    ]
   }
 }
