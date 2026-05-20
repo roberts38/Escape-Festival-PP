@@ -39,6 +39,26 @@ and updates:
 content/site.json
 ```
 
+## Bulk Past Event Galleries
+
+For hundreds of past-event photos, do not add them one by one in the CMS.
+
+1. In GitHub, create a folder such as:
+
+```text
+assets/uploads/past-events/first-escape
+```
+
+2. Upload all photos/videos for that event into the folder.
+3. In `/admin/`, open the event under **Past Events**.
+4. Paste the folder path into **Bulk Gallery Folder**:
+
+```text
+assets/uploads/past-events/first-escape
+```
+
+5. Publish. The website will load every JPG, PNG, WebP, GIF, MP4, WebM, or OGG file in that folder.
+
 ## Netlify Build Settings
 
 Use:

@@ -78,9 +78,29 @@ function imageMarkup(src, alt) {
 
 function mediaMarkup(item) {
   if (!item?.src) return '';
+  const files = toArray(item.src).length ? toArray(item.src) : [item.src];
+  return files.map((file) => singleMediaMarkup({ ...item, src: file })).join('');
+}
+
+function fileTypeFromUrl(src = '') {
+  return /\.(mp4|webm|ogg)(\?.*)?$/i.test(src) ? 'video' : 'image';
+}
+
+function mediaItemFromGithubFile(file) {
+  return {
+    type: fileTypeFromUrl(file.download_url || file.name),
+    src: file.download_url,
+    alt: file.name?.replace(/\.[^.]+$/, '').replace(/[-_]+/g, ' ') || 'Event media',
+    caption: '',
+  };
+}
+
+function singleMediaMarkup(item, options = {}) {
   const src = escapeHtml(item.src);
   const caption = item.caption ? `<p>${escapeHtml(item.caption)}</p>` : '';
-  if (item.type === 'video') {
+  const isVideo = item.type === 'video' || fileTypeFromUrl(item.src) === 'video';
+  const loading = options.lazy ? 'loading="lazy" decoding="async"' : 'decoding="async"';
+  if (isVideo) {
     return `
       <article>
         <video src="${src}" controls playsinline preload="metadata"></video>
@@ -90,7 +110,7 @@ function mediaMarkup(item) {
   }
   return `
     <article>
-      <img src="${src}" alt="${escapeHtml(item.alt || item.caption || '')}">
+      <img src="${src}" alt="${escapeHtml(item.alt || item.caption || '')}" ${loading}>
       ${caption}
     </article>
   `;
@@ -204,71 +224,13 @@ function renderTickets(tickets, ticketUrl) {
 }
 
 function renderPastEvents(events) {
-  const container = document.querySelector('[data-past-events]');
-  const eventItems = toArray(events).filter((event) => event?.title || event?.date || event?.description);
-  if (!container || !eventItems.length) return;
-
-  container.innerHTML = `
-    <div class="past-tabs" role="tablist" aria-label="Past ESCAPE events">
-      ${eventItems.map((event, index) => `
-        <button
-          class="past-tab ${index === 0 ? 'is-active' : ''}"
-          type="button"
-          role="tab"
-          id="past-tab-${index}"
-          aria-selected="${index === 0}"
-          aria-controls="past-panel-${index}"
-          data-past-tab="${index}">
-          <span>${escapeHtml(event.date || `Event ${index + 1}`)}</span>
-          ${escapeHtml(event.title || '')}
-        </button>
-      `).join('')}
-    </div>
-    <div class="past-panels">
-      ${eventItems.map((event, index) => {
-        const media = toArray(event.media).filter((item) => item?.src);
-        return `
-          <article
-            class="past-panel ${index === 0 ? 'is-active' : ''}"
-            role="tabpanel"
-            id="past-panel-${index}"
-            aria-labelledby="past-tab-${index}"
-            ${index === 0 ? '' : 'hidden'}
-            data-past-panel="${index}">
-            <div class="past-panel-copy">
-              <time>${escapeHtml(event.date || '')}</time>
-              <h3>${escapeHtml(event.title || '')}</h3>
-              <p>${escapeHtml(event.description || '')}</p>
-            </div>
-            <div class="past-media-grid">
-              ${media.length ? media.map(mediaMarkup).join('') : '<article><p>Add photos or videos for this event in the CMS.</p></article>'}
-            </div>
-          </article>
-        `;
-      }).join('')}
-    </div>
-  `;
-  initPastEventTabs(container);
-}
-
-function initPastEventTabs(container) {
-  const tabs = [...container.querySelectorAll('[data-past-tab]')];
-  const panels = [...container.querySelectorAll('[data-past-panel]')];
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const activeIndex = tab.dataset.pastTab;
-      tabs.forEach((item) => {
-        const isActive = item.dataset.pastTab === activeIndex;
-        item.classList.toggle('is-active', isActive);
-        item.setAttribute('aria-selected', String(isActive));
-      });
-      panels.forEach((panel) => {
-        const isActive = panel.dataset.pastPanel === activeIndex;
-        panel.classList.toggle('is-active', isActive);
-        panel.hidden = !isActive;
-      });
-    });
-  });
+  renderCollection(document.querySelector('[data-past-events]'), toArray(events), (event) => `
+    <article>
+      <time>${escapeHtml(event.date || '')}</time>
+      <h3>${escapeHtml(event.title || '')}</h3>
+      <p>${escapeHtml(event.description || '')}</p>
+    </article>
+  `);
 }
 
 function renderGallery(photos) {

@@ -116,7 +116,7 @@ collections:
                   - { label: "Button Label", name: "button_label", widget: "string" }
                   - { label: "Featured", name: "featured", widget: "boolean", required: false }
 
-          - label: "Past Events - event tabs and photos/videos"
+          - label: "Past Events"
             name: "past_events"
             widget: "object"
             fields:
@@ -125,22 +125,7 @@ collections:
               - label: "Events"
                 name: "events"
                 widget: "list"
-                label_singular: "Past Event Tab"
-                hint: "Each item becomes a clickable tab on the website. Open an event here, then add photos or videos in the Photos / Videos for this Event field."
-                summary: "{{fields.title}}"
                 fields:
-                  - label: "Photos / Videos for this Event"
-                    name: "media"
-                    widget: "list"
-                    label_singular: "Photo or Video"
-                    required: false
-                    hint: "Click Add Photo or Video to upload event photos or MP4/WebM videos. These appear only when this event tab is selected."
-                    summary: "{{fields.caption}}"
-                    fields:
-                      - { label: "Type", name: "type", widget: "select", options: ["image", "video"], default: "image" }
-                      - { label: "Upload Photo or Video", name: "src", widget: "file", hint: "Use this for JPG, PNG, WebP, MP4, or WebM files." }
-                      - { label: "Alt Text", name: "alt", widget: "string", required: false }
-                      - { label: "Caption", name: "caption", widget: "string", required: false }
                   - { label: "Date", name: "date", widget: "string" }
                   - { label: "Title", name: "title", widget: "string" }
                   - { label: "Description", name: "description", widget: "text" }
