@@ -5,13 +5,13 @@
     "email": "hello@example.com"
   },
   "past_events": {
-    "kicker": "Past Events",
-    "headline": "Two years already in the story",
+    "kicker": "The Story So Far",
+    "headline": "Our Third Edition Coming Soon!",
     "events": [
       {
         "date": "28 March 2025",
-        "title": "First Edition",
-        "description": "Add attendance, photos, performers and the founding story from the first event."
+        "title": "The First Escape at Maloop",
+        "description": "The story of Escape begins in the beautiful garden setting of Maloop - A simple, yet elegant affair, Escape made its mark and continues to grow. "
       },
       {
         "date": "28 February 2026",
@@ -140,16 +140,16 @@
     },
     "artists": [
       {
-        "name": "Local Bands",
-        "description": "Names and set times TBC"
+        "name": "Local Band",
+        "description": "Bustaka Band \nThe Khmer Blind Band \n"
       },
       {
         "name": "International Acts",
         "description": "Names and set times TBC"
       },
       {
-        "name": "DJ Stage",
-        "description": "Selectors and closing sets TBC"
+        "name": "International DJs",
+        "description": "Sound Advice\nMousse T"
       },
       {
         "name": "Second Stage",
