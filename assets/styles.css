@@ -352,9 +352,82 @@ p { line-height: 1.58; }
   padding: 1rem;
   font-weight: 850;
 }
-.timeline article,
 .info-grid article { padding: 1.2rem; }
+.artist-card > img {
+  width: 100%;
+  height: 150px;
+  margin: 0 0 1rem;
+  border: 2px solid var(--ink);
+  border-radius: .35rem;
+  object-fit: cover;
+}
 time { display: block; margin-bottom: .75rem; color: var(--pink); font-weight: 950; text-transform: uppercase; }
+.past-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .8rem;
+  margin-bottom: 1rem;
+}
+.past-tab {
+  min-height: 5rem;
+  padding: .95rem 1rem;
+  border: 3px solid var(--ink);
+  border-radius: .5rem;
+  background: var(--cream);
+  color: var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  font: inherit;
+  font-weight: 950;
+  text-align: left;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.past-tab span {
+  display: block;
+  margin-bottom: .35rem;
+  color: var(--pink);
+  font-size: .82rem;
+  text-transform: uppercase;
+}
+.past-tab:hover,
+.past-tab.is-active {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.past-tab.is-active { background: var(--sun); }
+.past-panel {
+  display: grid;
+  grid-template-columns: minmax(260px, .7fr) minmax(0, 1.3fr);
+  gap: 1rem;
+  align-items: start;
+}
+.past-panel[hidden] { display: none; }
+.past-panel-copy,
+.past-media-grid article {
+  border: 3px solid var(--ink);
+  border-radius: .5rem;
+  background: var(--cream);
+  box-shadow: 7px 7px 0 var(--ink);
+}
+.past-panel-copy { padding: 1.2rem; }
+.past-media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.past-media-grid article { overflow: hidden; }
+.past-media-grid img,
+.past-media-grid video {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--night);
+}
+.past-media-grid p {
+  margin: 0;
+  padding: 1rem;
+  font-weight: 850;
+}
 .info-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .faq { margin-top: 2rem; display: grid; gap: .75rem; }
 details {
@@ -525,9 +598,11 @@ input {
   .experience-grid,
   .gallery-grid,
   .timeline,
+  .past-tabs,
   .info-grid,
   .ticket-options,
   .sponsor-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .past-panel { grid-template-columns: 1fr; }
   .tickets-copy { justify-self: start; }
 }
 
@@ -543,6 +618,8 @@ input {
   .experience-grid,
   .gallery-grid,
   .timeline,
+  .past-tabs,
+  .past-media-grid,
   .info-grid,
   .ticket-options,
   .sponsor-list,

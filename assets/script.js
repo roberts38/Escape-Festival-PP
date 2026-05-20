@@ -57,8 +57,43 @@ function setLink(element, href, fallback = '#') {
   element.toggleAttribute('aria-disabled', !href);
 }
 
+function toArray(value) {
+  if (Array.isArray(value)) return value;
+  if (value && typeof value === 'object') return Object.values(value);
+  return [];
+}
+
+function escapeHtml(value = '') {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+}
+
 function imageMarkup(src, alt) {
-  return src ? `<img src="${src}" alt="${alt || ''}">` : '';
+  return src ? `<img src="${escapeHtml(src)}" alt="${escapeHtml(alt || '')}">` : '';
+}
+
+function mediaMarkup(item) {
+  if (!item?.src) return '';
+  const src = escapeHtml(item.src);
+  const caption = item.caption ? `<p>${escapeHtml(item.caption)}</p>` : '';
+  if (item.type === 'video') {
+    return `
+      <article>
+        <video src="${src}" controls playsinline preload="metadata"></video>
+        ${caption}
+      </article>
+    `;
+  }
+  return `
+    <article>
+      <img src="${src}" alt="${escapeHtml(item.alt || item.caption || '')}">
+      ${caption}
+    </article>
+  `;
 }
 
 function renderCollection(container, items, renderItem) {
@@ -125,21 +160,23 @@ function renderSite(content) {
 function renderLineup(lineup) {
   const container = document.querySelector('[data-lineup]');
   if (!container || !lineup) return;
-  const artists = lineup.artists || [];
+  const artists = toArray(lineup.artists).filter((artist) => artist?.name || artist?.title || artist?.description);
+  const feature = lineup.feature || {};
   container.innerHTML = `
     <article class="artist-card feature-card">
-      ${imageMarkup(lineup.feature?.image, lineup.feature?.image_alt)}
+      ${imageMarkup(feature.image, feature.image_alt)}
       <div>
-        <p class="tag">${lineup.feature?.tag || ''}</p>
-        <h3>${lineup.feature?.name || ''}</h3>
-        <p>${lineup.feature?.description || ''}</p>
+        <p class="tag">${escapeHtml(feature.tag || '')}</p>
+        <h3>${escapeHtml(feature.name || '')}</h3>
+        <p>${escapeHtml(feature.description || '')}</p>
       </div>
     </article>
     ${artists.map((artist, index) => `
       <article class="artist-card">
+        ${imageMarkup(artist.image, artist.image_alt || artist.name || artist.title)}
         <span>${String(index + 1).padStart(2, '0')}</span>
-        <h3>${artist.name || ''}</h3>
-        <p>${artist.description || ''}</p>
+        <h3>${escapeHtml(artist.name || artist.title || '')}</h3>
+        <p>${escapeHtml(artist.description || artist.copy || '')}</p>
       </article>
     `).join('')}
   `;
@@ -167,13 +204,71 @@ function renderTickets(tickets, ticketUrl) {
 }
 
 function renderPastEvents(events) {
-  renderCollection(document.querySelector('[data-past-events]'), events, (event) => `
-    <article>
-      <time>${event.date || ''}</time>
-      <h3>${event.title || ''}</h3>
-      <p>${event.description || ''}</p>
-    </article>
-  `);
+  const container = document.querySelector('[data-past-events]');
+  const eventItems = toArray(events).filter((event) => event?.title || event?.date || event?.description);
+  if (!container || !eventItems.length) return;
+
+  container.innerHTML = `
+    <div class="past-tabs" role="tablist" aria-label="Past ESCAPE events">
+      ${eventItems.map((event, index) => `
+        <button
+          class="past-tab ${index === 0 ? 'is-active' : ''}"
+          type="button"
+          role="tab"
+          id="past-tab-${index}"
+          aria-selected="${index === 0}"
+          aria-controls="past-panel-${index}"
+          data-past-tab="${index}">
+          <span>${escapeHtml(event.date || `Event ${index + 1}`)}</span>
+          ${escapeHtml(event.title || '')}
+        </button>
+      `).join('')}
+    </div>
+    <div class="past-panels">
+      ${eventItems.map((event, index) => {
+        const media = toArray(event.media).filter((item) => item?.src);
+        return `
+          <article
+            class="past-panel ${index === 0 ? 'is-active' : ''}"
+            role="tabpanel"
+            id="past-panel-${index}"
+            aria-labelledby="past-tab-${index}"
+            ${index === 0 ? '' : 'hidden'}
+            data-past-panel="${index}">
+            <div class="past-panel-copy">
+              <time>${escapeHtml(event.date || '')}</time>
+              <h3>${escapeHtml(event.title || '')}</h3>
+              <p>${escapeHtml(event.description || '')}</p>
+            </div>
+            <div class="past-media-grid">
+              ${media.length ? media.map(mediaMarkup).join('') : '<article><p>Add photos or videos for this event in the CMS.</p></article>'}
+            </div>
+          </article>
+        `;
+      }).join('')}
+    </div>
+  `;
+  initPastEventTabs(container);
+}
+
+function initPastEventTabs(container) {
+  const tabs = [...container.querySelectorAll('[data-past-tab]')];
+  const panels = [...container.querySelectorAll('[data-past-panel]')];
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const activeIndex = tab.dataset.pastTab;
+      tabs.forEach((item) => {
+        const isActive = item.dataset.pastTab === activeIndex;
+        item.classList.toggle('is-active', isActive);
+        item.setAttribute('aria-selected', String(isActive));
+      });
+      panels.forEach((panel) => {
+        const isActive = panel.dataset.pastPanel === activeIndex;
+        panel.classList.toggle('is-active', isActive);
+        panel.hidden = !isActive;
+      });
+    });
+  });
 }
 
 function renderGallery(photos) {
