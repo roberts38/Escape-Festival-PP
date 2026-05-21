@@ -129,7 +129,8 @@ collections:
                   - { label: "Date", name: "date", widget: "string" }
                   - { label: "Title", name: "title", widget: "string" }
                   - { label: "Description", name: "description", widget: "text" }
-                  - { label: "Aftermovie Video", name: "aftermovie_video", widget: "file", required: false, hint: "Upload one short MP4 or WebM aftermovie for this event. Around one minute is fine." }
+                  - { label: "Aftermovie Video URL", name: "aftermovie_video_url", widget: "string", required: false, hint: "Best option: paste a YouTube, Vimeo, or direct MP4/WebM URL. This avoids publish failures from large video uploads." }
+                  - { label: "Aftermovie Video Upload", name: "aftermovie_video", widget: "file", required: false, hint: "Optional fallback for small compressed MP4/WebM files only. If publishing fails, use the URL field instead." }
 
           - label: "Gallery"
             name: "gallery"

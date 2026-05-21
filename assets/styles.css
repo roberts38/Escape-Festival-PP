@@ -529,10 +529,16 @@ details p { margin: .75rem 0 0; }
   text-transform: uppercase;
 }
 .video-modal-heading h3 { margin: 0; }
-.video-modal video {
+.video-frame {
+  background: var(--night);
+}
+.video-modal video,
+.video-modal iframe {
   display: block;
   width: 100%;
+  aspect-ratio: 16 / 9;
   max-height: min(70vh, 620px);
+  border: 0;
   background: var(--night);
 }
 

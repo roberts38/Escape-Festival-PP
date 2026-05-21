@@ -227,9 +227,10 @@ function renderPastEvents(events) {
   const container = document.querySelector('[data-past-events]');
   const eventItems = toArray(events);
   renderCollection(container, eventItems, (event, index) => {
-    const hasVideo = Boolean(event.aftermovie_video);
+    const videoSource = event.aftermovie_video_url || event.aftermovie_video;
+    const hasVideo = Boolean(videoSource);
     return `
-    <article class="${hasVideo ? 'has-video' : ''}" ${hasVideo ? `tabindex="0" role="button" aria-label="Play ${escapeHtml(event.title || 'event')} aftermovie" data-event-video="${escapeHtml(event.aftermovie_video)}" data-event-title="${escapeHtml(event.title || '')}" data-event-date="${escapeHtml(event.date || '')}"` : ''}>
+    <article class="${hasVideo ? 'has-video' : ''}" ${hasVideo ? `tabindex="0" role="button" aria-label="Play ${escapeHtml(event.title || 'event')} aftermovie" data-event-video="${escapeHtml(videoSource)}" data-event-title="${escapeHtml(event.title || '')}" data-event-date="${escapeHtml(event.date || '')}"` : ''}>
       <time>${escapeHtml(event.date || '')}</time>
       <h3>${escapeHtml(event.title || '')}</h3>
       <p>${escapeHtml(event.description || '')}</p>
@@ -256,7 +257,7 @@ function ensureVideoModal() {
         <p data-video-date></p>
         <h3 id="video-modal-title" data-video-title></h3>
       </div>
-      <video controls playsinline data-video-player></video>
+      <div class="video-frame" data-video-frame></div>
     </div>
   `;
   document.body.appendChild(modal);
@@ -271,26 +272,59 @@ function ensureVideoModal() {
 
 function openVideoModal(card) {
   const modal = ensureVideoModal();
-  const player = modal.querySelector('[data-video-player]');
+  const frame = modal.querySelector('[data-video-frame]');
+  const source = card.dataset.eventVideo;
   setText(modal.querySelector('[data-video-date]'), card.dataset.eventDate || '');
   setText(modal.querySelector('[data-video-title]'), card.dataset.eventTitle || 'Aftermovie');
-  player.src = card.dataset.eventVideo;
+  frame.innerHTML = videoEmbedMarkup(source);
   modal.hidden = false;
   document.body.classList.add('modal-open');
-  player.play().catch(() => {});
+  const player = frame.querySelector('video');
+  player?.play().catch(() => {});
   modal.querySelector('[data-video-close]')?.focus();
 }
 
 function closeVideoModal() {
   const modal = document.querySelector('[data-video-modal]');
-  const player = modal?.querySelector('[data-video-player]');
+  const player = modal?.querySelector('video');
   if (player) {
     player.pause();
     player.removeAttribute('src');
     player.load();
   }
+  const frame = modal?.querySelector('[data-video-frame]');
+  if (frame) frame.innerHTML = '';
   if (modal) modal.hidden = true;
   document.body.classList.remove('modal-open');
+}
+
+function getVideoEmbedUrl(url) {
+  try {
+    const parsed = new URL(url, window.location.href);
+    if (parsed.hostname.includes('youtube.com')) {
+      const id = parsed.searchParams.get('v') || parsed.pathname.split('/').filter(Boolean).pop();
+      return id ? `https://www.youtube.com/embed/${id}?autoplay=1&rel=0` : url;
+    }
+    if (parsed.hostname.includes('youtu.be')) {
+      const id = parsed.pathname.split('/').filter(Boolean)[0];
+      return id ? `https://www.youtube.com/embed/${id}?autoplay=1&rel=0` : url;
+    }
+    if (parsed.hostname.includes('vimeo.com')) {
+      const id = parsed.pathname.split('/').filter(Boolean).pop();
+      return id ? `https://player.vimeo.com/video/${id}?autoplay=1` : url;
+    }
+    return url;
+  } catch {
+    return url;
+  }
+}
+
+function videoEmbedMarkup(url) {
+  const isDirectVideo = /\.(mp4|webm|ogg)(\?.*)?$/i.test(url);
+  if (isDirectVideo || url.startsWith('/')) {
+    return `<video src="${escapeHtml(url)}" controls autoplay playsinline></video>`;
+  }
+  return `<iframe src="${escapeHtml(getVideoEmbedUrl(url))}" title="Aftermovie video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
 }
 
 function initPastEventVideos(container) {

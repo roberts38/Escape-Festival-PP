@@ -12,18 +12,21 @@
         "date": "28 March 2025",
         "title": "First Edition",
         "description": "Add attendance, photos, performers and the founding story from the first event.",
+        "aftermovie_video_url": "",
         "aftermovie_video": ""
       },
       {
         "date": "28 February 2026",
         "title": "Second Edition",
         "description": "Add the 2026 highlights, social proof, press quotes, community partners and best moments.",
+        "aftermovie_video_url": "",
         "aftermovie_video": ""
       },
       {
         "date": "Next Date TBA",
         "title": "Third Edition",
         "description": "Use this space for the 2027 or next-season announcement once confirmed.",
+        "aftermovie_video_url": "",
         "aftermovie_video": ""
       }
     ]
