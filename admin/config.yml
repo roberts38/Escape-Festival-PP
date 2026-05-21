@@ -132,20 +132,6 @@ collections:
                   - { label: "Aftermovie Video URL", name: "aftermovie_video_url", widget: "string", required: false, hint: "Best option: paste a YouTube, Vimeo, or direct MP4/WebM URL. This avoids publish failures from large video uploads." }
                   - { label: "Aftermovie Video Upload", name: "aftermovie_video", widget: "file", required: false, hint: "Optional fallback for small compressed MP4/WebM files only. If publishing fails, use the URL field instead." }
 
-          - label: "Gallery"
-            name: "gallery"
-            widget: "object"
-            fields:
-              - { label: "Kicker", name: "kicker", widget: "string" }
-              - { label: "Headline", name: "headline", widget: "string" }
-              - label: "Photos"
-                name: "photos"
-                widget: "list"
-                fields:
-                  - { label: "Photo", name: "image", widget: "image" }
-                  - { label: "Alt Text", name: "image_alt", widget: "string" }
-                  - { label: "Caption", name: "caption", widget: "string", required: false }
-
           - label: "Information"
             name: "info"
             widget: "object"
