@@ -95,6 +95,36 @@ collections:
                   - { label: "Description", name: "description", widget: "text" }
                   - { label: "Image", name: "image", widget: "image" }
                   - { label: "Image Alt Text", name: "image_alt", widget: "string" }
+                  - { label: "Stage 1 Name", name: "stage_1_name", widget: "string", required: false, hint: "Use this for the Music All Day card." }
+                  - label: "Stage 1 Schedule"
+                    name: "stage_1_schedule"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Time", name: "time", widget: "string" }
+                      - { label: "Artist / Activity", name: "artist", widget: "string" }
+                  - { label: "Stage 2 Name", name: "stage_2_name", widget: "string", required: false, hint: "Use this for the Music All Day card." }
+                  - label: "Stage 2 Schedule"
+                    name: "stage_2_schedule"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "Time", name: "time", widget: "string" }
+                      - { label: "Artist / Activity", name: "artist", widget: "string" }
+                  - label: "Vendors"
+                    name: "vendors"
+                    widget: "list"
+                    required: false
+                    hint: "Use this for the Food & Drink card."
+                    fields:
+                      - { label: "Vendor Name", name: "name", widget: "string" }
+                  - label: "Activities"
+                    name: "activities"
+                    widget: "list"
+                    required: false
+                    hint: "Use this for the Family Energy card."
+                    fields:
+                      - { label: "Activity Name", name: "name", widget: "string" }
 
           - label: "Tickets"
             name: "tickets"

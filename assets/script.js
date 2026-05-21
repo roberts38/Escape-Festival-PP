@@ -203,13 +203,78 @@ function renderLineup(lineup) {
 }
 
 function renderExperience(items) {
-  renderCollection(document.querySelector('[data-experience]'), items, (item) => `
-    <article>
+  renderCollection(document.querySelector('[data-experience]'), items, (item, index) => `
+    <article class="experience-card">
       ${imageMarkup(item.image, item.image_alt)}
-      <h3>${item.title || ''}</h3>
-      <p>${item.description || ''}</p>
+      <div class="experience-card-body">
+        <h3>${escapeHtml(item.title || '')}</h3>
+        <p>${escapeHtml(item.description || '')}</p>
+        ${experienceDetailsMarkup(item, index)}
+      </div>
     </article>
   `);
+}
+
+function experienceDetailsMarkup(item, index) {
+  const stageOne = toArray(item.stage_1_schedule);
+  const stageTwo = toArray(item.stage_2_schedule);
+  const vendors = toArray(item.vendors);
+  const activities = toArray(item.activities);
+  const hasSchedule = stageOne.length || stageTwo.length;
+  const hasVendors = vendors.length;
+  const hasActivities = activities.length;
+
+  if (hasSchedule) {
+    return `
+      <details class="experience-details" ${index === 0 ? 'open' : ''}>
+        <summary>View schedule</summary>
+        <div class="stage-schedule">
+          ${scheduleColumnMarkup(item.stage_1_name || 'Stage 1', stageOne)}
+          ${scheduleColumnMarkup(item.stage_2_name || 'Stage 2', stageTwo)}
+        </div>
+      </details>
+    `;
+  }
+
+  if (hasVendors) {
+    return `
+      <details class="experience-details">
+        <summary>View vendors</summary>
+        <ul class="experience-list">
+          ${vendors.map((vendor) => `<li>${escapeHtml(vendor.name || vendor.title || vendor)}</li>`).join('')}
+        </ul>
+      </details>
+    `;
+  }
+
+  if (hasActivities) {
+    return `
+      <details class="experience-details">
+        <summary>View activities</summary>
+        <ul class="experience-list">
+          ${activities.map((activity) => `<li>${escapeHtml(activity.name || activity.title || activity)}</li>`).join('')}
+        </ul>
+      </details>
+    `;
+  }
+
+  return '';
+}
+
+function scheduleColumnMarkup(title, items) {
+  return `
+    <div>
+      <h4>${escapeHtml(title)}</h4>
+      <ul class="experience-list">
+        ${items.map((slot) => `
+          <li>
+            <strong>${escapeHtml(slot.time || '')}</strong>
+            <span>${escapeHtml(slot.artist || slot.title || '')}</span>
+          </li>
+        `).join('')}
+      </ul>
+    </div>
+  `;
 }
 
 function renderTickets(tickets, ticketUrl) {

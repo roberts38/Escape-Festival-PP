@@ -290,10 +290,52 @@ p { line-height: 1.58; }
 }
 .experience-grid article { overflow: hidden; background: white; }
 .experience-grid img { width: 100%; height: 250px; object-fit: cover; }
+.experience-card-body { padding: 1.1rem; }
 .experience-grid h3,
-.experience-grid p { margin-inline: 1.1rem; }
-.experience-grid h3 { margin-top: 1.1rem; }
-.experience-grid p { margin-bottom: 1.3rem; }
+.experience-grid p { margin: 0; }
+.experience-grid h3 { margin-bottom: .55rem; }
+.experience-grid p { margin-bottom: 1rem; }
+.experience-details {
+  border-top: 2px solid var(--ink);
+  padding-top: .85rem;
+}
+.experience-details summary {
+  cursor: pointer;
+  font-weight: 950;
+  text-transform: uppercase;
+  color: var(--pink);
+}
+.experience-details summary::marker { color: var(--ink); }
+.stage-schedule {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .8rem;
+  margin-top: .9rem;
+}
+.stage-schedule h4 {
+  margin: 0 0 .5rem;
+  font-size: 1rem;
+}
+.experience-list {
+  display: grid;
+  gap: .45rem;
+  margin: .75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.experience-list li {
+  border: 2px solid var(--ink);
+  border-radius: .35rem;
+  padding: .55rem .65rem;
+  background: var(--cream);
+  font-weight: 800;
+}
+.experience-list strong {
+  display: block;
+  color: var(--pink);
+  font-size: .85rem;
+  text-transform: uppercase;
+}
 
 .tickets-section {
   display: grid;
@@ -736,6 +778,7 @@ input {
   .feature-card { grid-column: auto; grid-row: auto; }
   .feature-card img,
   .experience-grid img { height: 210px; }
+  .stage-schedule { grid-template-columns: 1fr; }
   .video-modal-heading { padding-right: 4.8rem; }
   .footer { flex-direction: column; }
   .edit-panel {
