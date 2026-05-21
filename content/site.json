@@ -69,8 +69,6 @@
     "tiktok_url": ""
   },
   "experience": {
-    "kicker": "Experience",
-    "headline": "More than a stage",
     "items": [
       {
         "title": "Music All Day",
@@ -90,47 +88,55 @@
         "image": "https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=900&q=80",
         "image_alt": "Friends enjoying an outdoor event"
       }
-    ]
-  },
-  "experience_dropdowns": {
-    "stage_1_name": "Stage 1",
-    "stage_1_schedule": [
-      {
-        "time": "TBA",
-        "artist": "Opening act"
-      },
-      {
-        "time": "TBA",
-        "artist": "Headline act"
-      }
     ],
-    "stage_2_name": "Stage 2",
     "stage_2_schedule": [
       {
-        "time": "TBA",
-        "artist": "DJ set"
+        "time": "16.00",
+        "artist": "Bustaka Band"
       },
       {
-        "time": "TBA",
+        "time": "The Khmer Blind Band",
         "artist": "Closing set"
+      }
+    ],
+    "stage_1_schedule": [
+      {
+        "time": "16.00",
+        "artist": "abc"
+      },
+      {
+        "time": "17.30",
+        "artist": "def"
+      },
+      {
+        "time": "19.00",
+        "artist": "20.00"
+      },
+      {
+        "time": "21.30",
+        "artist": "Sound Advice"
       }
     ],
     "vendors": [
       {
-        "name": "Vendor TBA"
+        "name": "Seekers"
       },
       {
-        "name": "Drinks partner TBA"
+        "name": "Samai"
       }
     ],
     "activities": [
       {
-        "name": "Kids activities TBA"
+        "name": "Decathlon Sports Centre"
       },
       {
         "name": "Relaxed family area"
       }
-    ]
+    ],
+    "kicker": "Experience",
+    "headline": "More than a stage",
+    "stage_2_name": "Stage 2",
+    "stage_1_name": "Stage 1"
   },
   "about": {
     "kicker": "Escape Festival - Koh Norea ",
