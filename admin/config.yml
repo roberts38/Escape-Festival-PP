@@ -81,12 +81,10 @@ collections:
                   - { label: "Image", name: "image", widget: "image", required: false }
                   - { label: "Image Alt Text", name: "image_alt", widget: "string", required: false }
 
-          - label: "Experience Cards"
-            name: "experience"
+          - label: "Experience Dropdowns"
+            name: "experience_dropdowns"
             widget: "object"
             fields:
-              - { label: "Kicker", name: "kicker", widget: "string" }
-              - { label: "Headline", name: "headline", widget: "string" }
               - { label: "Music Stage 1 Name", name: "stage_1_name", widget: "string", required: false }
               - label: "Music Stage 1 Schedule"
                 name: "stage_1_schedule"
@@ -119,6 +117,13 @@ collections:
                 summary: "{{fields.name}}"
                 fields:
                   - { label: "Activity Name", name: "name", widget: "string" }
+
+          - label: "Experience Cards"
+            name: "experience"
+            widget: "object"
+            fields:
+              - { label: "Kicker", name: "kicker", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
               - label: "Experience Cards"
                 name: "items"
                 widget: "list"

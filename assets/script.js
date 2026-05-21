@@ -168,7 +168,7 @@ function renderSite(content) {
   }
 
   renderLineup(content.lineup);
-  renderExperience(content.experience);
+  renderExperience(content.experience, content.experience_dropdowns);
   renderTickets(content.tickets, ticketUrl);
   renderPastEvents(content.past_events?.events);
   renderGallery(content.gallery?.photos);
@@ -202,7 +202,7 @@ function renderLineup(lineup) {
   `;
 }
 
-function renderExperience(experience) {
+function renderExperience(experience, dropdowns = {}) {
   const items = toArray(experience?.items);
   renderCollection(document.querySelector('[data-experience]'), items, (item, index) => `
     <article class="experience-card">
@@ -210,27 +210,27 @@ function renderExperience(experience) {
       <div class="experience-card-body">
         <h3>${escapeHtml(item.title || '')}</h3>
         <p>${escapeHtml(item.description || '')}</p>
-        ${experienceDetailsMarkup(experienceDetailsForItem(experience, item, index), index)}
+        ${experienceDetailsMarkup(experienceDetailsForItem(experience, dropdowns, item, index), index)}
       </div>
     </article>
   `);
 }
 
-function experienceDetailsForItem(experience, item, index) {
+function experienceDetailsForItem(experience, dropdowns, item, index) {
   const title = String(item.title || '').toLowerCase();
   if (index === 0 || title.includes('music')) {
     return {
-      stage_1_name: experience?.stage_1_name || item.stage_1_name,
-      stage_1_schedule: experience?.stage_1_schedule || item.stage_1_schedule,
-      stage_2_name: experience?.stage_2_name || item.stage_2_name,
-      stage_2_schedule: experience?.stage_2_schedule || item.stage_2_schedule,
+      stage_1_name: dropdowns?.stage_1_name || experience?.stage_1_name || item.stage_1_name,
+      stage_1_schedule: dropdowns?.stage_1_schedule || experience?.stage_1_schedule || item.stage_1_schedule,
+      stage_2_name: dropdowns?.stage_2_name || experience?.stage_2_name || item.stage_2_name,
+      stage_2_schedule: dropdowns?.stage_2_schedule || experience?.stage_2_schedule || item.stage_2_schedule,
     };
   }
   if (index === 1 || title.includes('food')) {
-    return { vendors: experience?.vendors || item.vendors };
+    return { vendors: dropdowns?.vendors || experience?.vendors || item.vendors };
   }
   if (index === 2 || title.includes('family')) {
-    return { activities: experience?.activities || item.activities };
+    return { activities: dropdowns?.activities || experience?.activities || item.activities };
   }
   return item;
 }
