@@ -224,13 +224,86 @@ function renderTickets(tickets, ticketUrl) {
 }
 
 function renderPastEvents(events) {
-  renderCollection(document.querySelector('[data-past-events]'), toArray(events), (event) => `
-    <article>
+  const container = document.querySelector('[data-past-events]');
+  const eventItems = toArray(events);
+  renderCollection(container, eventItems, (event, index) => {
+    const hasVideo = Boolean(event.aftermovie_video);
+    return `
+    <article class="${hasVideo ? 'has-video' : ''}" ${hasVideo ? `tabindex="0" role="button" aria-label="Play ${escapeHtml(event.title || 'event')} aftermovie" data-event-video="${escapeHtml(event.aftermovie_video)}" data-event-title="${escapeHtml(event.title || '')}" data-event-date="${escapeHtml(event.date || '')}"` : ''}>
       <time>${escapeHtml(event.date || '')}</time>
       <h3>${escapeHtml(event.title || '')}</h3>
       <p>${escapeHtml(event.description || '')}</p>
+      ${hasVideo ? '<span class="play-chip">Play aftermovie</span>' : ''}
     </article>
-  `);
+  `;
+  });
+  initPastEventVideos(container);
+}
+
+function ensureVideoModal() {
+  let modal = document.querySelector('[data-video-modal]');
+  if (modal) return modal;
+
+  modal = document.createElement('div');
+  modal.className = 'video-modal';
+  modal.hidden = true;
+  modal.setAttribute('data-video-modal', '');
+  modal.innerHTML = `
+    <div class="video-modal-backdrop" data-video-close></div>
+    <div class="video-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
+      <button class="video-modal-close" type="button" aria-label="Close video" data-video-close>Close</button>
+      <div class="video-modal-heading">
+        <p data-video-date></p>
+        <h3 id="video-modal-title" data-video-title></h3>
+      </div>
+      <video controls playsinline data-video-player></video>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  modal.addEventListener('click', (event) => {
+    if (event.target.closest('[data-video-close]')) closeVideoModal();
+  });
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !modal.hidden) closeVideoModal();
+  });
+  return modal;
+}
+
+function openVideoModal(card) {
+  const modal = ensureVideoModal();
+  const player = modal.querySelector('[data-video-player]');
+  setText(modal.querySelector('[data-video-date]'), card.dataset.eventDate || '');
+  setText(modal.querySelector('[data-video-title]'), card.dataset.eventTitle || 'Aftermovie');
+  player.src = card.dataset.eventVideo;
+  modal.hidden = false;
+  document.body.classList.add('modal-open');
+  player.play().catch(() => {});
+  modal.querySelector('[data-video-close]')?.focus();
+}
+
+function closeVideoModal() {
+  const modal = document.querySelector('[data-video-modal]');
+  const player = modal?.querySelector('[data-video-player]');
+  if (player) {
+    player.pause();
+    player.removeAttribute('src');
+    player.load();
+  }
+  if (modal) modal.hidden = true;
+  document.body.classList.remove('modal-open');
+}
+
+function initPastEventVideos(container) {
+  if (!container) return;
+  container.querySelectorAll('[data-event-video]').forEach((card) => {
+    card.addEventListener('click', () => openVideoModal(card));
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openVideoModal(card);
+      }
+    });
+  });
 }
 
 function renderGallery(photos) {

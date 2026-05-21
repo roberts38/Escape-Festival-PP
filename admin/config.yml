@@ -129,6 +129,7 @@ collections:
                   - { label: "Date", name: "date", widget: "string" }
                   - { label: "Title", name: "title", widget: "string" }
                   - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Aftermovie Video", name: "aftermovie_video", widget: "file", required: false, hint: "Upload one short MP4 or WebM aftermovie for this event. Around one minute is fine." }
 
           - label: "Gallery"
             name: "gallery"

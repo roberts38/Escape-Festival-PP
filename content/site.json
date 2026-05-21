@@ -12,33 +12,19 @@
         "date": "28 March 2025",
         "title": "First Edition",
         "description": "Add attendance, photos, performers and the founding story from the first event.",
-        "media": [
-          {
-            "type": "image",
-            "src": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1000&q=80",
-            "alt": "Festival crowd with stage lights",
-            "caption": "Replace with a real photo from the first ESCAPE event."
-          }
-        ]
+        "aftermovie_video": ""
       },
       {
         "date": "28 February 2026",
         "title": "Second Edition",
         "description": "Add the 2026 highlights, social proof, press quotes, community partners and best moments.",
-        "media": [
-          {
-            "type": "image",
-            "src": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1000&q=80",
-            "alt": "Friends celebrating outdoors",
-            "caption": "Replace with a real photo or video from the second ESCAPE event."
-          }
-        ]
+        "aftermovie_video": ""
       },
       {
         "date": "Next Date TBA",
         "title": "Third Edition",
         "description": "Use this space for the 2027 or next-season announcement once confirmed.",
-        "media": []
+        "aftermovie_video": ""
       }
     ]
   },
