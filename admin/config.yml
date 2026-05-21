@@ -87,14 +87,6 @@ collections:
             fields:
               - { label: "Kicker", name: "kicker", widget: "string" }
               - { label: "Headline", name: "headline", widget: "string" }
-              - label: "Items"
-                name: "items"
-                widget: "list"
-                fields:
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Description", name: "description", widget: "text" }
-                  - { label: "Image", name: "image", widget: "image" }
-                  - { label: "Image Alt Text", name: "image_alt", widget: "string" }
               - { label: "Music Stage 1 Name", name: "stage_1_name", widget: "string", required: false }
               - label: "Music Stage 1 Schedule"
                 name: "stage_1_schedule"
@@ -127,6 +119,14 @@ collections:
                 summary: "{{fields.name}}"
                 fields:
                   - { label: "Activity Name", name: "name", widget: "string" }
+              - label: "Experience Cards"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Image Alt Text", name: "image_alt", widget: "string" }
 
           - label: "Tickets"
             name: "tickets"
