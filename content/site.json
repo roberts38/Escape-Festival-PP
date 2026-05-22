@@ -181,7 +181,7 @@
   },
   "lineup": {
     "kicker": "Lineup",
-    "headline": "First names dropping soon",
+    "headline": "Who What Where!",
     "submit_label": "Submit artist info",
     "stage_1_label": "Stage 1",
     "stage_1_artists": [
@@ -194,12 +194,8 @@
         "set_time": "TBA"
       },
       {
-        "name": "International Acts",
-        "description": "Names and set times TBC",
-        "image": "",
-        "image_alt": "",
-        "category": "Artist",
-        "set_time": "TBA"
+        "name": "TBA",
+        "description": "TBC"
       }
     ],
     "stage_2_label": "Stage 2",
