@@ -26,11 +26,11 @@
     </button>
 
     <nav class="nav" data-nav>
+      <a href="#tickets">Tickets</a>
+      <a href="#info">Info</a>
       <a href="#lineup">Lineup</a>
       <a href="#experience">Experience</a>
-      <a href="#tickets">Tickets</a>
       <a href="#memories">Past Events</a>
-      <a href="#info">Info</a>
       <a href="#contact">Contact</a>
     </nav>
 
@@ -59,19 +59,66 @@
       </div>
     </section>
 
-    <section class="notice-band" aria-label="Content placeholders">
-      <p><strong>Prototype note:</strong> <span data-content="notice">Artist lineup, ticket link, sponsors and next event date are still TBC.</span></p>
+    <section class="tickets-section" id="tickets">
+      <div class="tickets-copy">
+        <div class="section-kicker" data-content="tickets.kicker">Tickets</div>
+        <h2 data-content="tickets.headline">Ticket launch ready</h2>
+        <p data-content="tickets.copy">Tickets are planned at $10. Connect this section to the booking link when confirmed.</p>
+        <div class="countdown" data-countdown>
+          <div><strong data-days>--</strong><span>Days</span></div>
+          <div><strong data-hours>--</strong><span>Hours</span></div>
+          <div><strong data-minutes>--</strong><span>Mins</span></div>
+        </div>
+      </div>
+      <div class="ticket-options" data-ticket-options>
+        <article>
+          <p class="tag">Early Bird</p>
+          <h3>$10</h3>
+          <p>General entry ticket. Booking link TBC.</p>
+          <a class="button compact" href="mailto:hello@example.com?subject=Festival%20tickets">Register Interest</a>
+        </article>
+        <article class="ticket-featured">
+          <p class="tag">General</p>
+          <h3>$10</h3>
+          <p>The main ticket type for festival day entry.</p>
+          <a class="button compact primary" href="mailto:hello@example.com?subject=Festival%20tickets">Buy Soon</a>
+        </article>
+        <article>
+          <p class="tag">Group</p>
+          <h3>Ask Us</h3>
+          <p>Use this for family, crew, sponsor or group packages.</p>
+          <a class="button compact" href="#contact">Contact</a>
+        </article>
+      </div>
     </section>
 
-    <section class="section intro-section">
-      <div class="section-kicker" data-content="about.kicker">About The Festival</div>
-      <div class="intro-grid">
+    <section class="section info-section" id="info">
+      <div class="section-heading">
         <div>
-          <h2 data-content="about.headline">Built for big singalongs, easy afternoons and one more song.</h2>
+          <div class="section-kicker" data-content="info.kicker">Information</div>
+          <h2 data-content="info.headline">Plan your day</h2>
         </div>
-        <div>
-          <p data-content="about.body">ESCAPE is a community-first music festival now heading into its third year. The first edition took place on 28 March 2025, followed by the second on 28 February 2026. The next event will take place at Coconut Park 2 Koh Norea, bringing together families, friends, local talent, international acts and DJs across two stages.</p>
-        </div>
+      </div>
+      <div class="info-grid" data-info-items>
+        <article><h3>Location</h3><p>Coconut Park 2 Koh Norea. Add full address, parking notes and a map embed.</p></article>
+        <article><h3>Travel</h3><p>Add taxi drop-off, tuk-tuk guidance, parking, accessibility routes and nearby landmarks.</p></article>
+        <article><h3>Access</h3><p>Step-free information, carers, quiet space, medical support and entry policy.</p></article>
+        <article><h3>What To Bring</h3><p>Bags, chairs, water bottles, weather prep, prohibited items and re-entry rules.</p></article>
+      </div>
+
+      <div class="faq" aria-label="Frequently asked questions" data-faqs>
+        <details open>
+          <summary>When is the next festival?</summary>
+          <p>The third-year date is still marked as TBA in this prototype. Add the confirmed date once announced.</p>
+        </details>
+        <details>
+          <summary>Where do I buy tickets?</summary>
+          <p>Tickets are planned at $10. Replace the ticket buttons with your confirmed booking link when ready.</p>
+        </details>
+        <details>
+          <summary>Can families attend?</summary>
+          <p>Yes. ESCAPE is positioned as a family-friendly festival with music, food, open-air space and two stages.</p>
+        </details>
       </div>
     </section>
 
@@ -125,39 +172,6 @@
       </div>
     </section>
 
-    <section class="tickets-section" id="tickets">
-      <div class="tickets-copy">
-        <div class="section-kicker" data-content="tickets.kicker">Tickets</div>
-        <h2 data-content="tickets.headline">Ticket launch ready</h2>
-        <p data-content="tickets.copy">Tickets are planned at $10. Connect this section to the booking link when confirmed.</p>
-        <div class="countdown" data-countdown>
-          <div><strong data-days>--</strong><span>Days</span></div>
-          <div><strong data-hours>--</strong><span>Hours</span></div>
-          <div><strong data-minutes>--</strong><span>Mins</span></div>
-        </div>
-      </div>
-      <div class="ticket-options" data-ticket-options>
-        <article>
-          <p class="tag">Early Bird</p>
-          <h3>$10</h3>
-          <p>General entry ticket. Booking link TBC.</p>
-          <a class="button compact" href="mailto:hello@example.com?subject=Festival%20tickets">Register Interest</a>
-        </article>
-        <article class="ticket-featured">
-          <p class="tag">General</p>
-          <h3>$10</h3>
-          <p>The main ticket type for festival day entry.</p>
-          <a class="button compact primary" href="mailto:hello@example.com?subject=Festival%20tickets">Buy Soon</a>
-        </article>
-        <article>
-          <p class="tag">Group</p>
-          <h3>Ask Us</h3>
-          <p>Use this for family, crew, sponsor or group packages.</p>
-          <a class="button compact" href="#contact">Contact</a>
-        </article>
-      </div>
-    </section>
-
     <section class="section memories-section" id="memories">
       <div class="section-heading">
         <div>
@@ -184,34 +198,20 @@
       </div>
     </section>
 
-    <section class="section info-section" id="info">
-      <div class="section-heading">
+    <section class="section intro-section">
+      <div class="section-kicker" data-content="about.kicker">About The Festival</div>
+      <div class="intro-grid">
         <div>
-          <div class="section-kicker" data-content="info.kicker">Information</div>
-          <h2 data-content="info.headline">Plan your day</h2>
+          <h2 data-content="about.headline">Built for big singalongs, easy afternoons and one more song.</h2>
+        </div>
+        <div>
+          <p data-content="about.body">ESCAPE is a community-first music festival now heading into its third year. The first edition took place on 28 March 2025, followed by the second on 28 February 2026. The next event will take place at Coconut Park 2 Koh Norea, bringing together families, friends, local talent, international acts and DJs across two stages.</p>
         </div>
       </div>
-      <div class="info-grid" data-info-items>
-        <article><h3>Location</h3><p>Coconut Park 2 Koh Norea. Add full address, parking notes and a map embed.</p></article>
-        <article><h3>Travel</h3><p>Add taxi drop-off, tuk-tuk guidance, parking, accessibility routes and nearby landmarks.</p></article>
-        <article><h3>Access</h3><p>Step-free information, carers, quiet space, medical support and entry policy.</p></article>
-        <article><h3>What To Bring</h3><p>Bags, chairs, water bottles, weather prep, prohibited items and re-entry rules.</p></article>
-      </div>
+    </section>
 
-      <div class="faq" aria-label="Frequently asked questions" data-faqs>
-        <details open>
-          <summary>When is the next festival?</summary>
-          <p>The third-year date is still marked as TBA in this prototype. Add the confirmed date once announced.</p>
-        </details>
-        <details>
-          <summary>Where do I buy tickets?</summary>
-          <p>Tickets are planned at $10. Replace the ticket buttons with your confirmed booking link when ready.</p>
-        </details>
-        <details>
-          <summary>Can families attend?</summary>
-          <p>Yes. ESCAPE is positioned as a family-friendly festival with music, food, open-air space and two stages.</p>
-        </details>
-      </div>
+    <section class="notice-band" aria-label="Content placeholders">
+      <p><strong>Prototype note:</strong> <span data-content="notice">Artist lineup, ticket link, sponsors and next event date are still TBC.</span></p>
     </section>
 
     <section class="sponsors-section" aria-label="Potential sponsors">
