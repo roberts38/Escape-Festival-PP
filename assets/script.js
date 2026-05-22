@@ -180,26 +180,74 @@ function renderSite(content) {
 function renderLineup(lineup) {
   const container = document.querySelector('[data-lineup]');
   if (!container || !lineup) return;
-  const artists = toArray(lineup.artists).filter((artist) => artist?.name || artist?.title || artist?.description);
-  const feature = lineup.feature || {};
+  const stages = [
+    {
+      id: 'stage-1',
+      label: lineup.stage_1_label || 'Stage 1',
+      artists: toArray(lineup.stage_1_artists).filter(hasLineupArtist),
+    },
+    {
+      id: 'stage-2',
+      label: lineup.stage_2_label || 'Stage 2',
+      artists: toArray(lineup.stage_2_artists).filter(hasLineupArtist),
+    },
+  ];
   container.innerHTML = `
-    <article class="artist-card feature-card">
-      ${imageMarkup(feature.image, feature.image_alt)}
-      <div>
-        <p class="tag">${escapeHtml(feature.tag || '')}</p>
-        <h3>${escapeHtml(feature.name || '')}</h3>
-        <p>${escapeHtml(feature.description || '')}</p>
+    <div class="lineup-tabs" role="tablist" aria-label="Lineup stages">
+      ${stages.map((stage, index) => `
+        <button class="lineup-tab ${index === 0 ? 'is-active' : ''}" type="button" role="tab" aria-selected="${index === 0}" aria-controls="${stage.id}" data-lineup-tab="${stage.id}">
+          ${escapeHtml(stage.label)}
+        </button>
+      `).join('')}
+    </div>
+    ${stages.map((stage, index) => `
+      <div class="lineup-panel" id="${stage.id}" role="tabpanel" ${index === 0 ? '' : 'hidden'} data-lineup-panel="${stage.id}">
+        ${stage.artists.length ? stage.artists.map((artist) => lineupArtistMarkup(artist)).join('') : `
+          <article class="artist-card empty-lineup">
+            <h3>${escapeHtml(stage.label)}</h3>
+            <p>Add band and artist details in the CMS.</p>
+          </article>
+        `}
       </div>
-    </article>
-    ${artists.map((artist, index) => `
-      <article class="artist-card">
-        ${imageMarkup(artist.image, artist.image_alt || artist.name || artist.title)}
-        <span>${String(index + 1).padStart(2, '0')}</span>
-        <h3>${escapeHtml(artist.name || artist.title || '')}</h3>
-        <p>${escapeHtml(artist.description || artist.copy || '')}</p>
-      </article>
     `).join('')}
   `;
+  initLineupTabs(container);
+}
+
+function hasLineupArtist(artist) {
+  return artist?.name || artist?.title || artist?.description || artist?.image;
+}
+
+function lineupArtistMarkup(artist) {
+  return `
+    <article class="artist-card">
+      ${imageMarkup(artist.image, artist.image_alt || artist.name || artist.title)}
+      <div class="artist-meta">
+        ${artist.set_time ? `<span>${escapeHtml(artist.set_time)}</span>` : ''}
+        ${artist.category ? `<span>${escapeHtml(artist.category)}</span>` : ''}
+      </div>
+      <h3>${escapeHtml(artist.name || artist.title || '')}</h3>
+      <p>${escapeHtml(artist.description || artist.copy || '')}</p>
+    </article>
+  `;
+}
+
+function initLineupTabs(container) {
+  const tabs = Array.from(container.querySelectorAll('[data-lineup-tab]'));
+  const panels = Array.from(container.querySelectorAll('[data-lineup-panel]'));
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.lineupTab;
+      tabs.forEach((item) => {
+        const isActive = item === tab;
+        item.classList.toggle('is-active', isActive);
+        item.setAttribute('aria-selected', String(isActive));
+      });
+      panels.forEach((panel) => {
+        panel.hidden = panel.dataset.lineupPanel !== target;
+      });
+    });
+  });
 }
 
 function renderExperience(experience, dropdowns = {}) {

@@ -62,24 +62,30 @@ collections:
               - { label: "Kicker", name: "kicker", widget: "string" }
               - { label: "Headline", name: "headline", widget: "string" }
               - { label: "Submit Link Label", name: "submit_label", widget: "string" }
-              - label: "Featured Artist / Stage"
-                name: "feature"
-                widget: "object"
-                fields:
-                  - { label: "Tag", name: "tag", widget: "string" }
-                  - { label: "Name", name: "name", widget: "string" }
-                  - { label: "Description", name: "description", widget: "text" }
-                  - { label: "Image", name: "image", widget: "image" }
-                  - { label: "Image Alt Text", name: "image_alt", widget: "string" }
-              - label: "Artists / Stages"
-                name: "artists"
+              - { label: "Stage 1 Tab Label", name: "stage_1_label", widget: "string", required: false }
+              - label: "Stage 1 Artists"
+                name: "stage_1_artists"
                 widget: "list"
                 summary: "{{fields.name}}"
                 fields:
-                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Band / Artist Name", name: "name", widget: "string" }
                   - { label: "Description", name: "description", widget: "text" }
-                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Photo or Logo", name: "image", widget: "image", required: false }
                   - { label: "Image Alt Text", name: "image_alt", widget: "string", required: false }
+                  - { label: "Category", name: "category", widget: "string", required: false, hint: "Example: band, DJ, headliner, local act." }
+                  - { label: "Set Time", name: "set_time", widget: "string", required: false }
+              - { label: "Stage 2 Tab Label", name: "stage_2_label", widget: "string", required: false }
+              - label: "Stage 2 Artists"
+                name: "stage_2_artists"
+                widget: "list"
+                summary: "{{fields.name}}"
+                fields:
+                  - { label: "Band / Artist Name", name: "name", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Photo or Logo", name: "image", widget: "image", required: false }
+                  - { label: "Image Alt Text", name: "image_alt", widget: "string", required: false }
+                  - { label: "Category", name: "category", widget: "string", required: false, hint: "Example: band, DJ, headliner, local act." }
+                  - { label: "Set Time", name: "set_time", widget: "string", required: false }
 
           - label: "Experience Dropdowns"
             name: "experience_dropdowns"

@@ -247,7 +247,6 @@ p { line-height: 1.58; }
 }
 .artist-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
 }
 .artist-card,
@@ -262,6 +261,52 @@ p { line-height: 1.58; }
 }
 .artist-card { padding: 1.2rem; min-height: 190px; }
 .artist-card span { color: var(--aqua); font-weight: 950; }
+.lineup-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .8rem;
+}
+.lineup-tab {
+  padding: 1rem;
+  border: 3px solid var(--ink);
+  border-radius: .5rem;
+  background: var(--cream);
+  box-shadow: 5px 5px 0 var(--ink);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 950;
+  text-align: left;
+  cursor: pointer;
+}
+.lineup-tab:hover,
+.lineup-tab.is-active {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.lineup-tab.is-active { background: var(--sun); }
+.lineup-panel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.lineup-panel[hidden] { display: none; }
+.artist-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-bottom: .65rem;
+}
+.artist-meta span {
+  display: inline-flex;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  padding: .25rem .55rem;
+  background: var(--sun);
+  color: var(--ink);
+  font-size: .8rem;
+  text-transform: uppercase;
+}
+.empty-lineup { grid-column: 1 / -1; }
 .feature-card {
   grid-column: span 2;
   grid-row: span 2;
@@ -747,6 +792,7 @@ input {
   .info-grid,
   .ticket-options,
   .sponsor-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lineup-panel { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .past-panel { grid-template-columns: 1fr; }
   .past-tabs { margin-bottom: .25rem; }
   .tickets-copy { justify-self: start; }
@@ -767,6 +813,8 @@ input {
   .past-tab {
     min-height: 4.75rem;
   }
+  .lineup-tabs,
+  .lineup-panel,
   .artist-grid,
   .experience-grid,
   .gallery-grid,

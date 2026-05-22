@@ -183,37 +183,42 @@
     "kicker": "Lineup",
     "headline": "First names dropping soon",
     "submit_label": "Submit artist info",
-    "feature": {
-      "tag": "Headliner TBA",
-      "name": "Main Stage",
-      "description": "Local and international headline bands, artists and DJs. Full lineup TBC.",
-      "image": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80",
-      "image_alt": "Festival crowd under stage lights"
-    },
-    "artists": [
+    "stage_1_label": "Stage 1",
+    "stage_1_artists": [
       {
         "name": "Local Bands",
         "description": "Bringing back the golden era of Khmer rock n roll - Escape welcomes various local artists.",
         "image": "",
-        "image_alt": ""
+        "image_alt": "",
+        "category": "Band",
+        "set_time": "TBA"
       },
       {
         "name": "International Acts",
         "description": "Names and set times TBC",
         "image": "",
-        "image_alt": ""
+        "image_alt": "",
+        "category": "Artist",
+        "set_time": "TBA"
+      }
+    ],
+    "stage_2_label": "Stage 2",
+    "stage_2_artists": [
+      {
+        "name": "Second Stage",
+        "description": "Emerging artists and special guests TBC",
+        "image": "",
+        "image_alt": "",
+        "category": "Live act",
+        "set_time": "TBA"
       },
       {
         "name": "DJ Stage",
         "description": "Selectors and closing sets TBC",
         "image": "",
-        "image_alt": ""
-      },
-      {
-        "name": "Second Stage",
-        "description": "Emerging artists and special guests TBC",
-        "image": "",
-        "image_alt": ""
+        "image_alt": "",
+        "category": "DJ",
+        "set_time": "TBA"
       }
     ]
   },
