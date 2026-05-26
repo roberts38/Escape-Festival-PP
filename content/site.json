@@ -188,14 +188,14 @@
       {
         "name": "Local Bands",
         "description": "Bringing back the golden era of Khmer rock n roll - Escape welcomes various local artists.",
-        "image": "",
+        "image": "/assets/uploads/img_1312.jpg",
         "image_alt": "",
         "category": "Band",
         "set_time": "TBA"
       },
       {
-        "name": "TBA",
-        "description": "Checkered Past",
+        "name": "Checkered Past",
+        "description": "The very best of SKA brought to you by a multi-instrumental band - Time to get your Skank on!",
         "category": "soul/funk/jazz",
         "image": "/assets/uploads/img_0165.jpg"
       }
